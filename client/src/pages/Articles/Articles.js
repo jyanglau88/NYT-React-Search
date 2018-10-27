@@ -40,15 +40,38 @@ class Articles extends Component {
     });
   };
 
+//  handleFormSubmit = event => {
+//    event.preventDefault();
+//    if (this.state.title && this.state.date) {
+//      API.apiArticles({
+//        title: this.state.title,
+//        date: this.state.date,
+ //       url: this.state.url
+ //     })
+  //      .then(res => this.loadArticles())
+  //      .catch(err => console.log(err));
+  //  }
+ // };
+
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title && this.state.date) {
-      API.saveArticle({
-        title: this.state.title,
-        date: this.state.date,
-        url: this.state.url
+    API.apiArticles(this.state.topic, this.state.startyear, this.state.endyear)
+      .then(res => {
+        this.setState({ results: res, topic: "", startyear: "", endyear: "" });
       })
-        .then(res => this.loadArticles())
+      .catch(err => console.log(err));
+  };
+
+  saveArticle = targetIndex => {
+    if (this.state.results[targetIndex].headline.main && this.state.results[targetIndex].pub_date && this.state.results[targetIndex].web_url) {
+      API.saveArticle({
+        title: this.state.results[targetIndex].headline.main,
+        date: this.state.results[targetIndex].pub_date,
+        url: this.state.results[targetIndex].web_url
+      })
+        .then(
+          res => this.loadArticles()
+        )
         .catch(err => console.log(err));
     }
   };
@@ -87,7 +110,9 @@ class Articles extends Component {
                 Search
               </FormBtn>
             </form>
+
           </Col>
+          
           <Col size="md-6 sm-12">
             <Jumbotron>
               <h1>Saved Articles</h1>
@@ -100,6 +125,9 @@ class Articles extends Component {
                       <strong>
                         {article.title} by {article.date}
                       </strong>
+                      <button className='btn btn-primary' onClick={this.saveArticle}>
+              Save Article
+            </button>
                     </Link>
                     <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
                   </ListItem>
