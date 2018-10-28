@@ -10,20 +10,24 @@ export default {
         return res.data.response.docs;
       });
   },    
-  // Gets all articles
+  // Get all articles
   getArticles: function() {
     return axios.get("/api/articles");
   },
-  // Gets the article with the given id !!!!!!!
-  getArticle: function(id) {
-    return axios.get("/api/articles/" + id);
-  },
-  // Deletes the article with the given id
-  deleteArticle: function(id) {
-    return axios.delete("/api/articles/" + id);
-  },
-  // Saves a article to the database
+  // Save an article to the database
   saveArticle: function(articleData) {
     return axios.post("/api/articles", articleData);
   },
+  // Delete an article with the given id
+  deleteArticle: function(id) {
+    return axios.delete("/api/articles/" + id);
+  },
+  // Save a comment for a given article
+  saveComment: function(commentData) {
+    return axios.post("/api/articles/" + commentData.id, commentData);
+  },
+  // Delete an article with the given id
+  deleteComment: function(id) {
+    return axios.delete("/api/articles/comments/" + id);
+  }
 };

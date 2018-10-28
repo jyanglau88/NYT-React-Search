@@ -11,6 +11,11 @@ router
   .route("/:id")
   .get(articlesController.findById)
   .put(articlesController.update)
-  .delete(articlesController.remove);
+  .delete(articlesController.remove)
+  .post(articlesController.comment);
+
+  router
+  .route("/comments/:id")
+  .delete(articlesController.removeComment);
 
 module.exports = router;
