@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 if (process.env.NODE_ENV === "production") {
   //test
   //app.use(express.static("client/public"));
-  app.use('/static', express.static(path.join(__dirname, 'client/build')));
+  app.use('/static', express.static(path.join(__dirname, 'client/public')));
 }
 
 // Add routes, both API and view
