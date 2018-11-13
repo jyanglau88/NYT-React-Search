@@ -46,8 +46,8 @@ class Home extends Component {
 		return (
 		    <Container>
             	<Jumbotron>
-					<h1 className="text-center">New York Times Article Scrubber</h1>
-					<h2 className="text-center">Search for and annotate articles of interest!</h2>
+					<h1 className="text-center">NYT React Search App</h1>
+					<h2 className="text-center">Search the NYT!</h2>
             	</Jumbotron>
 		        <Row>
 		        	<Col size="sm-12">
@@ -79,7 +79,7 @@ class Home extends Component {
 					<Col size="sm-12">
 		          		<Results>
 		          		{!this.state.articles.length ? (
-                			<h3 className="text-center">Please search for an article!</h3>
+                			<h3 className="text-center">Results will display here!</h3>
               			) : (
                 			<ResultList>
                   				{this.state.articles.map(article => {

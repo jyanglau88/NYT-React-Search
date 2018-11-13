@@ -6,11 +6,11 @@ export default {
 
     // Assign values to any empty parameters
     if (!query) {
-        query = "cats";
+        query = "World";
     }
 
     if (!begin_date) {
-        begin_date = "2017";
+        begin_date = "2001";
     }
 
     if (!end_date) {
@@ -42,18 +42,3 @@ export default {
   }
   
 };
-
-
-
-  // findArticleById: function(req, res) {
-  //   db.Article
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // }
-
-
-
-
-
-
