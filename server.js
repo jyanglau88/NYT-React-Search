@@ -1,52 +1,40 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const routes = require("./routes");
-const bodyParser = require("body-parser");
-const app = express();
-const PORT = process.env.PORT || 3001;
-
 const path = require("path");
+const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 3001;
+const app = express();
+const apiRoutes = require("./routes/apiRoutes");
+const mongoose = require("mongoose");
 
-// Define middleware here
-//app.use(express.urlencoded({ extended: true }));
-//app.use(express.json());
+// Serve up static assets
+app.use(express.static("client/build"));
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
 app.use(bodyParser.json());
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  //test
-  //app.use(express.static("client/public"));
-  app.use('/static', express.static(path.join(__dirname, 'client/public')));
-}
-
-// Add routes, both API and view
-app.use(routes);    
-
-const db = require("./models");
-
 // Use apiRoutes
-//app.use("/api", apiRoutes);
-
-// Set up promises with mongoose
-mongoose.Promise = global.Promise;
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact",
-{
-  useMongoClient: true
-});
+app.use("/api", apiRoutes);
 
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-
+// Set up promises with mongoose
+mongoose.Promise = global.Promise;
+// Connect to the Mongo DB
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/nytarticles",
+  {
+    useMongoClient: true
+  }
+);
 
 // Start the API server
 app.listen(PORT, function() {
-    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-  });
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
