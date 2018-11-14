@@ -3,7 +3,7 @@ import "./Header.css";
 
 const Header = () => {
   return (
-    <div className="jumbotron container">
+    <div className="jumbotron jumbotron-fluid container">
       <h1>NYT React Search App</h1>
       <hr />
       <h4>Let's you search The New York Times for articles!</h4>
