@@ -1,44 +1,19 @@
 import axios from "axios";
 
+const URL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+const KEY = "e192b6f601414bcbbf9074963fcd24a7";
+
 export default {
-  
-  findArticles: function(query, begin_date, end_date) {
-
-    // Assign values to any empty parameters
-    if (!query) {
-        query = "World";
-    }
-
-    if (!begin_date) {
-        begin_date = "2001";
-    }
-
-    if (!end_date) {
-        end_date = "2018";
-    }
-
-    // Get request
-    return axios.get("/api/articles", 
-    	{ params: 
-    		{ 
-    			query: query,
-    			begin_date: begin_date,
-    			end_date: end_date
-    		}
-    	}
-    );
+  getData(search) {
+    return axios.get(`${URL}?q=${search}&api-key=${KEY}`);
   },
-
-  saveArticle: function(article) {
-    return axios.post("/api/savedArticles", article);
+  getSavedArticles() {
+    return axios.get("/api/articles");
   },
-
-  getSavedArticles: function() {
-    return axios.get("/api/savedArticles");
+  saveArticles(Article) {
+    return axios.post("api/articles", Article)
   },
-
-  deleteArticle: function(articleId) {
-    return axios.delete("/api/savedArticles/" + articleId);
+  deleteArticle(id) {
+    return axios.delete("api/articles/" + id);
   }
-  
 };

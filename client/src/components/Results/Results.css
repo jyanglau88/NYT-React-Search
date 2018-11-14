@@ -1,0 +1,22 @@
+.results-box {
+  background-color: #353b40;
+  color: white;
+}
+
+.article-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 25px;
+}
+
+hr {
+  background-color: white;
+}
+
+img {
+  width: 150px;
+  border: solid 3px seashell;
+  border-radius: 50%;
+}
