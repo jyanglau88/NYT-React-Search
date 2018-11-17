@@ -12,8 +12,8 @@ const styles = {
 };
 
 const well = (props) => (
-  <div className="well" id={props.articleId}>
-    <h3 className="articleHeadline">
+  <div className="lead" id={props.articleId}>
+    <h3 className="my-4">
       <strong>{props.headline}</strong>
     </h3>
     <h5>Website: {props.author}</h5>
