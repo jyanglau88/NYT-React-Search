@@ -5,7 +5,7 @@ const Nav = () =>
   <nav className="navbar navbar-inverse bg-inverse navbar-top">
     <div className="container-fluid">
       <div className="navbar-header">
-        <button type="button" className="collapsed navbar-toggle">
+        <button type="button" className="#">
           <span className="sr-only">Menu</span>
           <span className="icon-bar" /> <span className="icon-bar" />
           <span className="icon-bar" />
@@ -14,8 +14,8 @@ const Nav = () =>
           New York Times React Search
         </Link>
       </div>
-      <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul className="nav navbar-nav navbar-right">
+      <div className="#">
+        <ul className="nav">
           <li><Link to="/search">Search</Link></li>
           <li><Link to="/saved">Saved</Link></li>
         </ul>
