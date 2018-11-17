@@ -19,7 +19,7 @@ const well = (props) => (
     <h5>Website: {props.author}</h5>
     <h5>Date: {props.date}</h5>
     <p> {props.summary}</p>
-    <button className="btn btn-primary" style={styles.button}><a style={styles.link} href={props.URL} target="_blank">Read</a></button>
+    <button className="btn btn-warning mr-3" style={styles.button}><a style={styles.link} href={props.URL} target="_blank">Read</a></button>
     <Button title={props.title} clicked={(event) => props.action(event, props.articleId)} />
   </div>
 );
