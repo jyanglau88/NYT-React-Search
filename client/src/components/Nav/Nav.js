@@ -10,11 +10,8 @@ const Nav = () =>
           Home
         </Link></button>
           <button className="btn btn-warning mr-3"><Link to="/search">Search</Link></button>
-          <button className="btn btn-warning"><Link to="/saved">Saved</Link></button>
+          <button className="btn btn-warning mr-3"><Link to="/saved">Saved</Link></button>
       </div>
-
-      <div className="fixed-bottom bg-img"></div>
-
     </div>
   </nav>;
 
