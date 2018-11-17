@@ -9,3 +9,7 @@
     background-image: url("../src/image/background.jpg");
   }
   
+  .main-bg-color {
+    background-color: aquamarine;
+    border: solid 1px;
+  }
