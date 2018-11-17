@@ -2,14 +2,14 @@
     font-family: Arial, Helvetica, sans-serif;
   }
   
-  body {
-    margin: 5;
-    padding: 5;
-    font-family: sans-serif;
+  .bg-img {
     background-image: url("../src/image/background.jpg");
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
   }
   
   .main-bg-color {
     background-color: aquamarine;
+    color: purple;
     border: solid 1px;
   }
