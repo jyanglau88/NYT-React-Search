@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Container from '../../components/Container/Container';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import Panel from '../../components/UI/Panel/Panel';
-import ArticleWell from '../../components/ArticleWell/ArticleWell';
+import ArticlesLibrary from '../../components/ArticlesLibrary/ArticlesLibrary';
 import nytAPI from "../../utils/nyt/API";
 import myAPI from "../../utils/api/API";
 
@@ -63,7 +63,7 @@ class Search extends Component {
     let searchResults = "Please enter search parameters.";
     if (this.state.showResults) {
       searchResults = this.state.results.map((article, index) => {
-        return <ArticleWell
+        return <ArticlesLibrary
           key={article._id}
           articleId={article._id}
           headline={article.headline.main}
