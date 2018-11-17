@@ -12,7 +12,7 @@ const styles = {
 };
 
 const well = (props) => (
-  <div className="lead" id={props.articleId}>
+  <div className="lead border border-warning rounded p-3" id={props.articleId}>
     <h3 className="my-4">
       <strong>{props.headline}</strong>
     </h3>
