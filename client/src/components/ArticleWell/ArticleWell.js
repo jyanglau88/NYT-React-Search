@@ -16,7 +16,7 @@ const well = (props) => (
     <h3 className="articleHeadline">
       <strong>{props.headline}</strong>
     </h3>
-    <h5>News Source: {props.author}</h5>
+    <h5>Website: {props.author}</h5>
     <h5>Date: {props.date}</h5>
     <p> {props.summary}</p>
     <button className="btn btn-primary" style={styles.button}><a style={styles.link} href={props.URL} target="_blank">Read</a></button>
